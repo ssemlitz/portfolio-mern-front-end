@@ -9,45 +9,29 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
-  const navigate = useNavigate()
-
-  const handleLogout = () => {
-    authService.logout()
-    setUser(null)
-    navigate('/')
-  }
-
-  const handleSignupOrLogin = () => {
-    setUser(authService.getUser())
-  }
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/" 
+          element={<Landing />} />
         <Route
-          path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          path="/about"
+          element={<About />}
         />
         <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          path="/skills"
+          element={<Skills />}
         />
         <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
+          path="/projects"
+          element={<Projects />}
         />
         <Route
-          path="/changePassword"
-          element={
-            user ? (
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
+          path="/contact"
+          element={<Contact />}
         />
       </Routes>
     </>
