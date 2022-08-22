@@ -1,12 +1,9 @@
-import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
+import { Routes, Route } from 'react-router-dom'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
-import * as authService from './services/authService'
+import NavBar from './components/NavBar/NavBar'
+import About from './pages/About/About'
+import Work from './pages/Work/Work'
+import Contact from './pages/Contact/Contact'
 
 const App = () => {
 
@@ -22,12 +19,8 @@ const App = () => {
           element={<About />}
         />
         <Route
-          path="/skills"
-          element={<Skills />}
-        />
-        <Route
           path="/projects"
-          element={<Projects />}
+          element={<Work />}
         />
         <Route
           path="/contact"
